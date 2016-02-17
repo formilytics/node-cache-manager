@@ -33,6 +33,8 @@ See the [Express.js cache-manager example app](https://github.com/BryanDonovan/n
 
 * [node-cache-manager-mongodb](https://github.com/v4l3r10/node-cache-manager-mongodb)
 
+* [node-cache-manager-fs](https://github.com/hotelde/node-cache-manager-fs)
+
 ## Overview
 
 First, it includes a `wrap` function that lets you wrap any function in cache.
@@ -69,9 +71,15 @@ function getCachedUser(id, cb) {
 Second, node-cache-manager features a built-in memory cache (using [node-lru-cache](https://github.com/isaacs/node-lru-cache)),
 with the standard functions you'd expect in most caches:
 
-    set(key, val, ttl, cb)
+    set(key, val, {ttl: ttl}, cb) // * see note below
     get(key, cb)
     del(key, cb)
+
+    // * Note that depending on the underlying store, you may be able to pass the
+    // ttl as the third param, like this:
+    set(key, val, ttl, cb)
+    // ... or pass no ttl at all:
+    set(key, val, cb)
 
 Third, node-cache-manager lets you set up a tiered cache strategy.  This may be of
 limited use in most cases, but imagine a scenario where you expect tons of
@@ -136,7 +144,20 @@ memoryCache.wrap(key, function (cb) {
 // { id: 123, name: 'Bob' }
 ```
 
-Here's a very basic example of how you could use this in an Express app:
+#### Example Using Promises
+
+```javascript
+memoryCache.wrap(key, function() {
+    return getUserPromise(userId);
+})
+.then(function(user) {
+    console.log('User:', user);
+});
+```
+
+#### Example Express App Usage
+
+(Also see the [Express.js cache-manager example app](https://github.com/BryanDonovan/node-cache-manager-express-example)).
 
 ```javascript
 function respond(res, err, data) {

@@ -1,3 +1,9 @@
+- 1.4.0 2016-02-03
+  - Passing ttl of 0 to lruCache, upgrading to lru-cache 4.0.0
+
+- 1.3.0 2016-01-26
+  - Promise support (#39, #24) - @PuKoren
+
 - 1.2.2 2015-10-19
   - Bugfix: Fixing domain error issues when error is thrown inside 'work' function (#28).
 

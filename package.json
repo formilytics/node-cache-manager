@@ -1,5 +1,5 @@
 {
-  "name": "cache-manager",
+  "name": "@appsumo/cache-manager",
   "version": "1.4.0",
   "description": "Cache module for Node.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BryanDonovan/node-cache-manager.git"
+    "url": "https://github.com/appsumo/node-cache-manager.git"
   },
   "keywords": [
     "cache",
@@ -33,5 +33,8 @@
     "mocha": "^1.20.1",
     "optimist": "^0.6.1",
     "sinon": "^1.10.2"
+  },
+  "publishConfig": {
+    "access": "restricted"
   }
 }

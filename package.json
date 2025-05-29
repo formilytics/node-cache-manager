@@ -1,5 +1,5 @@
 {
-  "name": "@appsumo/cache-manager",
+  "name": "@formilytics/cache-manager",
   "version": "1.4.0",
   "description": "Cache module for Node.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/appsumo/node-cache-manager.git"
+    "url": "git+https://github.com/formilytics/node-cache-manager.git"
   },
   "keywords": [
     "cache",
